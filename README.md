@@ -8,7 +8,7 @@ Instructions:
    [+] Edit line 34 and 35 and in line 34 put your sandboxie executable path and on 35 put the path to your sandbox folder.
    [+] Run cmd as administrator then locate the folder where you have downloaded this repository and run main.py or run.cmd.
    [+] Within some time the results will generated in analyse folder.
-   [+] All issues are accepted in issues tabut
+   [+] All issues are accepted in issues tab
 Requirements:
    [+] Python 3.5 or above 
    [+] C++ redistributable 2015
