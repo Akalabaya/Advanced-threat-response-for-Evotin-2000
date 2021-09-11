@@ -1,4 +1,4 @@
-<h2>This is a project to analyze files to generate procmon logs,windump pcap,and extact codechunks and analyze</h2>
+<h2>This is a project to analyse files to generate procmon logs,windump pcap,and extact codechunks and analyze</h2>
    <hr></hr>
 <pre>
 Instructions:
