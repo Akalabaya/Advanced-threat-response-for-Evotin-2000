@@ -86,3 +86,4 @@ sandbox_controller.run("pd32.exe -p a.exe  -o c:/analyse/files/",wait="/wait")
 time.sleep(45)
 sandbox_controller.get_output(sandbox_folder)
 
+ 
