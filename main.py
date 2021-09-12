@@ -55,10 +55,10 @@ except:
 
 
 print("[*] Starting windump network...")
-sandbox_controller.run("startback.exe WinDump.exe -w C:/analyse/netwok.log")
+sandbox_controller.run("sb.exe WinDump.exe -w C:/analyse/netwok.log")
 
 print("[*] Starting procmon...")
-os.system("startback.exe Procmon.exe /AcceptEula /Quiet /Minimized /backingfile logs/capture.pml")
+os.system("sb.exe Procmon.exe /AcceptEula /Quiet /Minimized /backingfile logs/capture.pml")
 
 
 
@@ -67,7 +67,7 @@ sandbox_controller.run("malware/a.exe")
 time.sleep(20)
 
 print("[*] Terminating Windump...")
-sandbox_controller.run('startback.exe taskkill /IM WinDump.exe /F')
+sandbox_controller.run('sb.exe taskkill /IM WinDump.exe /F')
 
 print("[*] Terminating Procmon...")
 os.system("Procmon.exe /AcceptEula /Terminate")
