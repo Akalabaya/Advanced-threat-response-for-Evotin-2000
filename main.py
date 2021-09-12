@@ -50,25 +50,24 @@ try:
     #Creating folder for an analyse folder
     os.mkdir(sandbox_folder+"drive/C/analyse/")
     os.mkdir(sandbox_folder+"drive/C/analyse/files")
-    os.mkdir(sandbox_folder+"drive/C/analyse/network")
 except:
     pass
 
 
 print("[*] Starting windump network...")
-sandbox_controller.run("WinDump.exe -w C:/analyse/netwok.log")
+sandbox_controller.run("startback.exe WinDump.exe -w C:/analyse/netwok.log")
 
 print("[*] Starting procmon...")
-os.system("start /min Procmon.exe /AcceptEula /Quiet /Minimized /backingfile logs/capture.pml")
+os.system("startback.exe Procmon.exe /AcceptEula /Quiet /Minimized /backingfile logs/capture.pml")
 
 
 
 sandbox_controller.run("malware/a.exe")
-#Sleeping for 10 seconds
-time.sleep(15)
+#Sleeping for 20 seconds
+time.sleep(20)
 
 print("[*] Terminating Windump...")
-sandbox_controller.run('taskkill /IM WinDump.exe /F')
+sandbox_controller.run('startback.exe taskkill /IM WinDump.exe /F')
 
 print("[*] Terminating Procmon...")
 os.system("Procmon.exe /AcceptEula /Terminate")
@@ -80,6 +79,10 @@ print("[*] Saving file as csv...")
 os.system("Procmon.exe /AcceptEula /OpenLog logs\capture.pml /SaveAs analyse/procmon/capture.csv")
 
 print("[*] Writing windump log..")
-shutil.copy(sandbox_folder+"drive/C/analyse/netwok.log","analyse/network/network.log")
+shutil.move(sandbox_folder+"drive/C/analyse/netwok.log","analyse/network/network.log")
 
+
+sandbox_controller.run("pd32.exe -p a.exe  -o c:/analyse/files/",wait="/wait")
+time.sleep(45)
+sandbox_controller.get_output(sandbox_folder)
 
